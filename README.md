@@ -1,5 +1,5 @@
-# NAEQ
-An algorithm that accepts a paragraph of words. Sums up the New Aeon English Qabala cipher equivalent letter values of each consecutive set of two words, three words, and four words. In the results set, outputs the array of word combinations and their summed NAEQ cipher values.
+# NAEQuery
+NAEQuery is a lightweight algorithm that helps highlight significant words or phrases within a paragraph or excerpt. The algorithm sums up the New Aeon English Qabala cipher equivalent letter values for each consecutive set of two, three, and four words. The result set outputs an array of word combinations and their summed NAEQ cipher values.
 
 
 ### Order & Value

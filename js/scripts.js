@@ -15,6 +15,7 @@ String.prototype.format = function() {
 function _clean( text ) {
 
     var _t = text.toLowerCase();
+        _t = _t.replace(/\n/g, " ");
         _t = _t.replace(/[^\w\s]/gi, '');
         _t = _t.replace(/[0-9]/g, '');
     
@@ -53,7 +54,7 @@ function _waterfall( text ) {
         }
     }
 
-    console.log( "112 MATCHES: \n\n{0}".format( _112.join("\n") ) );
+    // console.log( "112 MATCHES: \n\n{0}".format( _112.join("\n") ) );
 
     return _a;
 }
@@ -65,7 +66,7 @@ function _cipher( text ) {
     var _s = 0;
     var _l = _t.length;
     for (var i = 0; i < _l; i++) {
-        _s +=  _.indexOf(_t[i]);
+        _s += _.indexOf(_t[i]);
     }
 
     if( _s == 112 ) {
@@ -74,3 +75,23 @@ function _cipher( text ) {
 
     return _s;
 }
+
+$(document).ready( function() {
+    var maxChar = 1000;
+    var charRemaining = maxChar;
+    $('.naeq-textarea').keyup(function () {
+        charRemaining = maxChar - $(this).val().length;
+        $('.text-counter').text( charRemaining +' character(s) left');
+    });
+
+    $('button.naeq-analyze').click( function() {
+        var _output = _waterfall( $('.naeq-textarea').val() );
+
+        $('#collapseOne1 .card-body').text( _112.join(", ") );
+        $('#json').text( JSON.stringify(_output, undefined, 2) );
+
+        if( !$('#collapseOne1').hasClass('show') ) { 
+            $('#headingOne1 a').click();
+        }
+    });
+});
