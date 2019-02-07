@@ -18,6 +18,18 @@ h5 { color: #666666; font-size: 1.1em; }
 
 .social-button.tw { margin-bottom: 2em; }
 
+.card-header > a:after {
+    content: "\f078"; /* fa-chevron-down */
+    font-family: 'FontAwesome';
+    position: absolute;
+    color: #999;
+    right: 11px;
+    top: 11px;
+}
+.card-header > a[aria-expanded="true"]:after {
+    content: "\f077"; /* fa-chevron-up */
+}
+
 blockquote {
 margin: 0 auto;
 padding: 1em;
