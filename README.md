@@ -9,7 +9,7 @@ N=14  O=15  P=16  Q=17  R=18  S=19  T=20  U=21  V=22  W=23  X=24  Y=25   Z=26
 ```
 
 
-The algorithm highlights all words or phrases that equal **112**:
+The algorithm highlights all words or phrases that equal **your cipher value**:
 
 `112 = WE ARE ONE, the code phrase that tells you you’re in important territory`
 
