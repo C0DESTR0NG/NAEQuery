@@ -11,7 +11,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
         
-        <link href="https://fonts.googleapis.com/css?family=Didact+Gothic&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap" rel="stylesheet">
         
         <link rel="stylesheet" href="css/styles.css">
         <script src="js/scripts.js"></script>
@@ -59,7 +59,7 @@
                         <label for="naeq-label"></label>
                         <div class="row">
                             <div class="col-md-6">
-                                <input type="number" class="form-control naeq-input" placeholder="Enter your cipher number value" min="0" onkeypress="return event.charCode != 45">
+                                <input type="number" class="form-control naeq-input" placeholder="Enter your cipher number value" pattern="\d*" min="0" onkeypress="return event.charCode != 45">
                             </div>
                             <div class="col-md-6">
                                 <label class="error">You must enter a cipher number value</label>
@@ -146,6 +146,10 @@
                         </div>
 
                     </div>
+
+                    <footer>
+                        <p class="copyright">CODE<strong>STRONG</strong> • <?php print date('Y'); ?></p>
+                    </footer>
                 </div>
                 <div class="col-md-1"></div>
             </div>

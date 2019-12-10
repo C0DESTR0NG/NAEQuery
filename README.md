@@ -4,8 +4,8 @@ NAEQuery is a lightweight algorithm that helps highlight significant words or ph
 
 ### Order & Value
 ```
-A=1   B=2   C=3   D=4   E=5   F=6   G=7   H=8   I=9   J=10  K=11  L=12   M=13  
-N=14  O=15  P=16  Q=17  R=18  S=19  T=20  U=21  V=22  W=23  X=24  Y=25   Z=26
+A=1	  B=20	C=13  D=6	E=25  F=18	G=11  H=4   I=23  J=16	K=9	  L=2	 M=21	
+N=14  O=7	P=26  Q=19	R=12  S=5	T=24  U=17	V=10  W=3	X=22  Y=15	 Z=8
 ```
 
 

@@ -1,8 +1,10 @@
 
 
-body { padding: 3em 0; font-family: 'Didact Gothic', sans-serif; }
+body { padding: 3em 0 1em; font-family: 'Open Sans', sans-serif; }
 
-h1 { padding-bottom: 0.5em; text-shadow: 2px 2px 0px rgba(0,123,255, .42); }
+h1 { padding-bottom: 0.5em; text-shadow: 2px 2px 0px rgba(0,123,255, .42); font-weight: 600; }
+h1 small { font-weight: 600; }
+
 h5 { color: #666666; font-size: 1.1em; }
 
 .accordion { padding: 3em 0; }
@@ -49,7 +51,10 @@ blockquote:nth-of-type(even) footer:after { content: ' —'; }
 
 .cloud { height: 300px; }
 #cloud { left: 50%; width: 95%; margin: 3em 0 0; position: relative; transform: translateX(-50%); }
-.jqcloud span { font-family: 'Didact Gothic', sans-serif!important; }
+.jqcloud span { font-family: 'Open Sans', sans-serif!important; }
+
+footer p.copyright { text-align: center; padding: 2em 0 0 0; opacity: .42; }
+
 
 @media all and (max-width: 991px) {
 
@@ -59,6 +64,14 @@ blockquote:nth-of-type(even) footer:after { content: ' —'; }
 
 @media all and (max-width: 767px) {
 
-    .form-group .error.active { display: block; position: relative; top: -1.5em; }
+    .form-group .error.active { display: block; position: relative; top: -1em; }
+
+    input.form-control { font-size: 1.6em; height: 70px; }
+    input.form-control::-webkit-input-placeholder { font-size: 16px; font-weight: 400; position: relative; top: 8px; }
+    input.form-control::-moz-placeholder { font-size: 16px; font-weight: 400; position: relative; top: 8px; }
+    input.form-control:-ms-input-placeholder { font-size: 16px; font-weight: 400; position: relative; top: 8px; }
+    input.form-control::placeholder { font-size: 16px; font-weight: 400; position: relative; top: 8px; }
+
+    .text-counter { position: relative; top: 30px; }
 
 }
