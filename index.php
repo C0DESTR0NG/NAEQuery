@@ -3,17 +3,17 @@
     <head>
         <meta charset="utf-8">
         <title>NAEQuery JS Cipher</title>
-        <meta name="description" content="NAEQuery JS Cipher">
+        <meta name="description" content="NAEQuery is a lightweight algorithm that helps highlight significant words or noms de plume within paragraphs, phrases or excerpts. The algorithm sums up the New Aeon English Qabala cipher equivalent letter values for each consecutive set of words. The result set outputs an array of word combinations and their summed NAEQ cipher values.">
+        <meta name="keywords" content="NAEQ,New Aeon English Qabala,cipher,secret cipher,hellier,wriste,112,indrid cold"> 
         <meta name="viewport" content="width=device-width,initial-scale=1">
 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
-        
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap" rel="stylesheet">
-        
         <link rel="stylesheet" href="css/styles.css">
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
         <script src="js/scripts.js"></script>
 
         <?php // Only inject Google Analytics if on non-local environment ?>
@@ -43,29 +43,22 @@
                     <noscript>JavaScript is required</noscript>
                     
                     <h1 class="text-center">NAEQ<small>uery</small></h1>
-                    <p>NAEQ<small>uery</small> is a lightweight algorithm that helps highlight significant words or phrases within a paragraph or excerpt. The algorithm sums up the New Aeon English Qabala cipher equivalent letter values for each consecutive set of two, three, and four words. The result set outputs an array of word combinations and their summed NAEQ cipher values.</p>
-                    <p>The algorithm highlights all words or phrases that equal <strong>your inputted cipher value</strong>.</p>
+                    <p class="text-center"><em>“In the labyrinth of the alphabet<br class="hidden-md-up"> the truth is hidden.”<br><small>- Austin Osman Spare</small></em></p>
                     
-                    <p class="example-text">See 112 Example:</p>
-
-                    <blockquote>
-                        <p><q>112 = WE ARE ONE, the code phrase that tells you you’re in important territory, but also THY WIFE and LETTER and WORDS AND SIGNS and INK AND BLACK and ALL HOUSE OF GOD and THE WHEEL and I AM 49 PLACE and, as you noted CROSS 52 I FLAP.</q></p>
-                        <footer>"Interview with Terry R. Wriste June 24, 1994.” Interview by Allen H. Greenfield. Secret Cipher of the UFOnauts</footer>
-
-                        <p><strong>MATCHES: WE ARE ONE, THY WIFE, LETTER, WORDS AND SIGNS, INK AND BLACK, ALL HOUSE OF GOD, THE WHEEL, I AM PLACE, CROSS I FLAP</strong></p>
-                    </blockquote>
+                    <p>NAEQ<small>uery</small> is a lightweight algorithm that helps highlight significant words or <em>noms de plume</em> within paragraphs, phrases or excerpts. The algorithm sums up the New Aeon English Qabala cipher equivalent letter values for each consecutive set of words. The result set outputs an array of word combinations and their summed NAEQ cipher values.</p>
+                    <p>The algorithm highlights all words or phrases that equal <strong>your inputted cipher value</strong>.</p>
                             
                     <div class="form-group">
                         <label for="naeq-label"></label>
                         <div class="row">
                             <div class="col-md-6">
-                                <input type="number" class="form-control naeq-input" placeholder="Enter your cipher number value" pattern="\d*" min="0" onkeypress="return event.charCode != 45">
+                                <input type="number" class="form-control naeq-input" placeholder="Enter a cipher number value (ie: 112)" pattern="\d*" min="0" onkeypress="return event.charCode != 45">
                             </div>
                             <div class="col-md-6">
                                 <label class="error">You must enter a cipher number value</label>
                             </div>
                         </div>
-                        <textarea class="form-control naeq-textarea" placeholder="Insert a paragraph, phrase or excerpt" maxlength="10000" rows="10"></textarea>
+                        <textarea class="form-control naeq-textarea" placeholder="Insert a paragraph, phrase or excerpt" maxlength="10000" rows="8"></textarea>
                         <div class="row text-right">
                             <div class="col-md-12">
                                 <span class="text-counter">10000 character(s) left</span>
@@ -134,6 +127,15 @@
                         
                         </div>
                         <!-- Accordion wrapper -->
+
+                        <p class="example-text">See 112 Example:</p>
+
+                        <blockquote>
+                            <p><q>112 = WE ARE ONE, the code phrase that tells you you’re in important territory, but also THY WIFE and LETTER and WORDS AND SIGNS and INK AND BLACK and ALL HOUSE OF GOD and THE WHEEL and I AM 49 PLACE and, as you noted CROSS 52 I FLAP.</q></p>
+                            <footer>"Interview with Terry R. Wriste June 24, 1994.” Interview by Allen H. Greenfield. Secret Cipher of the UFOnauts</footer>
+
+                            <p><strong>MATCHES: WE ARE ONE, THY WIFE, LETTER, WORDS AND SIGNS, INK AND BLACK, ALL HOUSE OF GOD, THE WHEEL, I AM PLACE, CROSS I FLAP</strong></p>
+                        </blockquote>
 
                         <div class="social-button tw">
                             <a href="https://twitter.com/cmilburndesign?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large" data-show-count="false">Follow @cmilburndesign</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>

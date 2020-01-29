@@ -36,7 +36,7 @@ textarea.form-control::placeholder { font-size: 16px; font-weight: 400; }
 
 .example-text { padding: 1em 0 0 0.9em; font-style: italic; }
 
-blockquote { margin: 0 auto 1.5em 1em; padding: 1em 1em 0.8em 1.5em; border-left: 3px solid #CCC; }
+blockquote { margin: 0 auto 4.5em 1em; padding: 1em 1em 0.8em 1.5em; border-left: 3px solid #CCC; }
 blockquote:before { display: none; }
 blockquote:not(:first-of-type) { margin-top: .5em; }
 blockquote p { color: #444; font-size: 12pt; line-height: 1.4; font-style: italic; }
@@ -53,6 +53,7 @@ blockquote:nth-of-type(even) footer:after { content: ' —'; }
 #cloud { left: 50%; width: 95%; margin: 3em 0 0; position: relative; transform: translateX(-50%); }
 .jqcloud span { font-family: 'Open Sans', sans-serif!important; }
 
+footer { font-size: 1.3em; }
 footer p.copyright { text-align: center; padding: 2em 0 0 0; opacity: .42; }
 
 
@@ -64,6 +65,11 @@ footer p.copyright { text-align: center; padding: 2em 0 0 0; opacity: .42; }
 
 @media all and (max-width: 767px) {
 
+    body { padding: 3em 0.85em 1em; }
+
+    p { text-align: center; font-size: .95em; }
+    blockquote p { text-align: left; }
+
     .form-group .error.active { display: block; position: relative; top: -1em; }
 
     input.form-control { font-size: 1.6em; height: 70px; }
@@ -74,4 +80,56 @@ footer p.copyright { text-align: center; padding: 2em 0 0 0; opacity: .42; }
 
     .text-counter { position: relative; top: 30px; }
 
+}
+
+@media (max-width: 575px) {
+    .hidden-xs-down {
+      display: none !important;
+    }
+  }
+
+@media (min-width: 576px) {
+    .hidden-sm-up {
+        display: none !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .hidden-sm-down {
+        display: none !important;
+    }
+}
+
+@media (min-width: 768px) {
+    .hidden-md-up {
+        display: none !important;
+    }
+}
+
+@media (max-width: 991px) {
+    .hidden-md-down {
+        display: none !important;
+    }
+}
+
+@media (min-width: 992px) {
+    .hidden-lg-up {
+        display: none !important;
+    }
+}
+
+@media (max-width: 1199px) {
+    .hidden-lg-down {
+        display: none !important;
+    }
+}
+
+@media (min-width: 1200px) {
+    .hidden-xl-up {
+        display: none !important;
+    }
+}
+
+.hidden-xl-down {
+    display: none !important;
 }
