@@ -1,4 +1,14 @@
 
+// Import naeq-data-controller.js
+var script = document.createElement('script');
+script.src = "js/naeq-data-controller.js";
+script.onload = function () {
+    NAEQuery.Controller.init();
+};
+document.head.appendChild(script);
+
+
+
 var _cipherArray = [];
 var _cipherValue = 0;
 var _ = ['∴','a','l','w','h','s','d','o','z','k','v','g','r','c','n','y','j','u','f','q','b','m','x','i','t','e','p'];
