@@ -21,3 +21,5 @@ The algorithm highlights all words or phrases that equal **your cipher value**:
 >Austin Osman Spare
 
 See [New Aeon English Qabala Cipher (Single Value)](http://www.bluestwave.com/cipher_naeq.php)
+
+CODESTRONG | 2020 | [www.NAEQuery.com](http://www.NAEQuery.com)
