@@ -54,7 +54,9 @@ blockquote:nth-of-type(even) footer:after { content: ' —'; }
 .jqcloud span { font-family: 'Open Sans', sans-serif!important; }
 
 footer { font-size: 1.3em; }
-footer p.copyright { text-align: center; padding: 2em 0 0 0; opacity: .42; }
+footer p.copyright { text-align: center; padding: 2em 0 0 0; margin-bottom: 0; opacity: .42; }
+footer p.version { text-align: center; padding: 0; opacity: .42; font-size: .8em; }
+footer p.version a { color: #212529; } 
 
 
 @media all and (max-width: 991px) {

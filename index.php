@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>NAEQuery JS Cipher</title>
+        <title>NAEQuery Cipher Tool | CODESTRONG</title>
         <meta name="description" content="NAEQuery is a lightweight algorithm that helps highlight significant words or noms de plume within paragraphs, phrases or excerpts. The algorithm sums up the New Aeon English Qabala cipher equivalent letter values for each consecutive set of words. The result set outputs an array of word combinations and their summed NAEQ cipher values.">
         <meta name="keywords" content="NAEQ,New Aeon English Qabala,cipher,secret cipher,hellier,wriste,112,indrid cold"> 
         <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -151,6 +151,9 @@
 
                     <footer>
                         <p class="copyright">CODE<strong>STRONG</strong> • <?php print date('Y'); ?></p>
+                        <p class="version">
+                            <small><a href="http://www.NAEQuery.com" title="NAEQuery Cipher Tool">NAEQuery</a> Version 2.0.1</small>
+                        </p>
                     </footer>
                 </div>
                 <div class="col-md-1"></div>
