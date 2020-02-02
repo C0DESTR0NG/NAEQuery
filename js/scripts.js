@@ -34,7 +34,7 @@ function _clean( text ) {
     var _t = text.toLowerCase();
         _t = _t.replace(/\n/g, " ");
         _t = _t.replace(/[^\w\s]/gi, '');
-        _t = _t.replace(/[0-9]/g, '');
+        // _t = _t.replace(/[0-9]/g, '');
     
     return _t;
 
@@ -76,17 +76,24 @@ function _waterfall( text ) {
     return _a;
 }
 
-function _cipher( text ) {
+function _cipher( text, matchable = true ) {
 
     var _t = text.replace(/\s/g,'');
-
     var _s = 0;
-    var _l = _t.length;
-    for (var i = 0; i < _l; i++) {
-        _s += _.indexOf(_t[i]);
+    
+    // Check if word is a number 
+    if( _t.match(/^[0-9]+$/) ) {
+        _s += parseInt(_t);
+    }
+    // Otherwise summate the char values
+    else { 
+        var _l = _t.length;
+        for (var i = 0; i < _l; i++) {
+            _s += _.indexOf(_t[i]);
+        }
     }
 
-    if( _s == _cipherValue ) {
+    if( matchable && _s == _cipherValue ) {
         _cipherArray.push(text.toUpperCase());
     }
 
@@ -135,10 +142,6 @@ $(document).ready( function() {
     $('.naeq-input').on("cut copy paste",function(e) {
         e.preventDefault();
      });
-
-    $('.naeq-input').on('keyup change', function () {
-        $('.cipher-value').text( $(this).val() );
-    });
     
     $('button.naeq-analyze').click( function() {
 
@@ -150,21 +153,23 @@ $(document).ready( function() {
 
             var _output = _waterfall( $('.naeq-textarea').val() );
 
-            $('#collapseOne1 .card-body').text( _cipherArray.uniqueArray().join(", ") );
-            if( $('#collapseOne1 .card-body').text().length == 0 ) {
-                $('#collapseOne1 .card-body').text("No matches.");
+            $('#collapseDefaultCipher1 .cipher-matches').text( _cipherArray.uniqueArray().join(", ") ).fadeIn();
+            if( $('#collapseDefaultCipher1 .card-body').text().length == 0 ) {
+                $('#collapseDefaultCipher1 .card-body').text("No matches.");
                 $('.cloud-wrapper').html("");
             }
             else {
-                constructCloudArray( _cipherArray );
+                $('.naeq-textarea').highlightTextarea('destroy');
+                $('.naeq-textarea').trigger('input').highlightTextarea({
+                    words: _cipherArray.uniqueArray(),
+                    caseSensitive: false,
+                    color: "#d2d0cf",
+                    resizable: true
+                });
             }
             $('#json').text( JSON.stringify(_output, undefined, 2) );
 
-            if( !$('#collapseOne1').hasClass('show') ) { 
-                $('#headingOne1 a').click();
-            }
-
-            $('body,html').animate( { scrollTop : $('.cloud-wrapper').offset().top +'px' } , 600);
+            // $('body,html').animate( { scrollTop : $('.cloud-wrapper').offset().top +'px' } , 600);
 
             try {
                 if( $('.naeq-textarea').val().length > 0 ) {
@@ -180,8 +185,19 @@ $(document).ready( function() {
         }
         else {
             $('.form-group .error').addClass('active');
+            $('#collapseDefaultCipher1 .cipher-matches').fadeOut();
 
-            $('body,html').animate( { scrollTop : ($('input.naeq-input').offset().top - 10) +'px' } , 600);
+            $('body,html').animate( { scrollTop : ($('input.naeq-input').offset().top - 84) +'px' } , 600);
         }
+    });
+
+    $('h1 .about-btn').click( function() {
+        $('.about').slideToggle();
+    });
+
+
+    $(window).resize( function() {
+        $('.naeq-textarea').highlightTextarea('destroy');
+        $('#collapseDefaultCipher1 .cipher-matches').hide();
     });
 });
