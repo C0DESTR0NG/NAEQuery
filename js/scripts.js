@@ -34,7 +34,6 @@ function _clean( text ) {
     var _t = text.toLowerCase();
         _t = _t.replace(/\n/g, " ");
         _t = _t.replace(/[^\w\s]/gi, '');
-        // _t = _t.replace(/[0-9]/g, '');
     
     return _t;
 
@@ -78,20 +77,27 @@ function _waterfall( text ) {
 
 function _cipher( text, matchable = true ) {
 
-    var _t = text.replace(/\s/g,'');
-    var _s = 0;
-    
-    // Check if word is a number 
-    if( _t.match(/^[0-9]+$/) ) {
-        _s += parseInt(_t);
-    }
-    // Otherwise summate the char values
-    else { 
-        var _l = _t.length;
-        for (var i = 0; i < _l; i++) {
-            _s += _.indexOf(_t[i]);
+    let _words = _clean(text).split(' ');
+    let _s = 0;
+
+    _words.forEach( _w => {
+        // Check if only a number
+        if( _w.match(/^[0-9]+$/) ) {    
+            _s += parseInt(_w);
         }
-    }
+        // Sum alphanumeric characters
+        else {                          
+            var _char = _w.length;
+            for (var i = 0; i < _char; i++) {
+                if( _w[i].match(/^[0-9]+$/) ) {
+                    _s += parseInt(_w[i]);
+                }
+                else {
+                    _s += _.indexOf(_w[i]);
+                }
+            }
+        }
+    });
 
     if( matchable && _s == _cipherValue ) {
         _cipherArray.push(text.toUpperCase());
@@ -145,7 +151,7 @@ $(document).ready( function() {
     
     $('button.naeq-analyze').click( function() {
 
-        if( $('input.naeq-input').val() != "" ) {
+        if( $('input.naeq-input').val() != "" && $('textarea.naeq-textarea').val() != "" ) {
 
             $('.form-group .error').removeClass('active');
 

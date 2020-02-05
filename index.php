@@ -44,13 +44,13 @@
                     <noscript>JavaScript is required</noscript>
                     
                     <h1>
-                        NAEQ<small>UERY</small>
+                        <a href="http://www.NAEQuery.com" title="NAEQuery by CODESTRONG">NAEQ<small>UERY</small></a>
                         <a href="javascript:void(0)" title="About NAEQuery" class="about-btn"><span></span></a>
                         <span>Version III</span>
                     </h1>
 
                     <div class="about">
-                        <p>NAEQ<small>UERY</small> is a lightweight algorithm that helps highlight significant words, given contactee names or <em>noms de plume</em> within paragraphs, phrases or excerpts. The algorithm sums up the New Aeon English Qabala cipher equivalent letter values for each consecutive set of words. The result set outputs an array of word combinations and their summed NAEQ 6 values.</p>
+                        <p>NAEQ<small>UERY</small> is a lightweight algorithm that helps highlight significant words, given contactee names or <em>noms de plume</em> within paragraphs, phrases or excerpts. The algorithm sums up the New Aeon English Qabala cipher equivalent letter values for each consecutive set of words. The result set outputs an array of word combinations and their summed NAEQ6 values.</p>
                         <p>The algorithm highlights all words or phrases that equal <strong>your inputted cipher value</strong>.</p>
 
                         <p>The publications of the A∴A∴ divide themselves into five classes.</p>
@@ -86,9 +86,6 @@
                             </div>
                             <div class="social-button">
                                 <a class="github-button" href="https://github.com/C0DESTR0NG" data-size="large" aria-label="Follow @C0DESTR0NG on GitHub">Follow @C0DESTR0NG</a>
-                            </div>
-                            <div class="social-button">
-                                <a class="github-button" href="https://github.com/C0DESTR0NG/NAEQuery/archive/master.zip" data-icon="octicon-cloud-download" data-size="large" aria-label="Download C0DESTR0NG/NAEQuery on GitHub">Download</a>
                             </div>
                         </div>
                     </footer>

@@ -1,3 +1,5 @@
+<hr class="hr-text" data-content="OR">
+
 <div class="row">
     <div class="col-md-10 offset-md-1 text-center">
         <h2>Find matching cipher values by number</h2>
@@ -16,24 +18,24 @@
             <a data-toggle="collapse" data-parent="#accordion" href="#collapseDefaultCipher1" aria-expanded="false"
             aria-controls="collapseDefaultCipher1">
                 <h5 class="mb-0">
-                    <span href="#">☆</span> NAEQ<small>UERY</small> <small>DECIPHER TOOL</small>: <strong class="cipher-value"></strong>
+                    NAEQ<small>UERY</small> <small>DECIPHER TOOL</small>: <strong class="cipher-value"></strong>
                 </h5>
             </a>
         </div>
 
         <!-- Card body -->
-        <div id="collapseDefaultCipher1" class="collapse" role="tabpanel" aria-labelledby="headingDefaultCipher1" data-parent="#accordion">
+        <div id="collapseDefaultCipher1" class="collapse show" role="tabpanel" aria-labelledby="headingDefaultCipher1" data-parent="#accordion">
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-6">
                         <input type="number" class="form-control naeq-input" placeholder="Enter a cipher number value (ie: 112)" pattern="\d*" min="0" onkeypress="return event.charCode != 45">
                     </div>
                     <div class="col-md-6">
-                        <label class="error">You must enter a cipher number value</label>
+                        <label class="error">You must enter a cipher number value and text</label>
                     </div>
                 </div>
 
-                <textarea class="form-control naeq-textarea" placeholder="Insert a paragraph, phrase or excerpt" maxlength="10000" rows="7"></textarea>
+                <textarea class="form-control naeq-textarea" placeholder="Enter words, numbers, phrases or excerpts" maxlength="10000" rows="7"></textarea>
                 
                 <div class="naeq-analyze-row">
                     <div class="row text-right">

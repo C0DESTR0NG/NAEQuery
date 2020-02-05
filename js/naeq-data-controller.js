@@ -38,8 +38,6 @@ NAEQuery.Controller = function() {
 	return {
 
 		init: function() {
-            console.log("loaded naeq-data-controller");
-
             NAEQuery.Controller.bindEvents();
             NAEQuery.Controller.loadAllBookData();
         },
@@ -67,6 +65,8 @@ NAEQuery.Controller = function() {
         },
 
         bindEvents: function() {
+            NAEQuery.Controller.resize();
+
             $('textarea.main-textarea').bind('input propertychange', function() {
                 let text = _clean($(this).val());
                 let cipherValue = _cipher(text, false);
@@ -79,13 +79,28 @@ NAEQuery.Controller = function() {
                     try {
                         let matches = [];
                         if( naeqData[bookNumber][cipherValue] !== undefined ) {
-                            matches = naeqData[bookNumber][cipherValue].uniqueArray();                            
+                            matches = naeqData[bookNumber][cipherValue].sort(function(a, b) {
+                                var x = a.removeVerseNumbers().cleanAmpersands(), y = b.removeVerseNumbers().cleanAmpersands();	
+                                return x < y ? -1 : x > y ? 1 : 0;
+                            })
+                            
+                            matches = matches.map(function(item, index){
+                                return '<li>'+ item.cleanAmpersands()
+                                                   .cleanVerseNumbers();
+                            }).uniqueArray();
+                        }
+
+                        $('.naeq-number-value span').text(cipherValue);
+
+                        let matchHtml = "";
+                        if( matches.length > 0 ) {
+                            matchHtml = '<ul>'+ matches.join("</li>") +'</ul>';
                         }
 
                         $('#accordion-ciphers .card .card-header[data-book-number="'+ bookNumber +'"]')
                         .next()
                         .find('.card-body')
-                        .text(matches.join(", "))
+                        .html(matchHtml)
                         .parents('.card')
                         .find('.card-header a[aria-expanded="false"]')
                         .click();
@@ -93,6 +108,23 @@ NAEQuery.Controller = function() {
                         $('input.custom-control-input[data-book-number="'+ bookNumber +'"]')
                         .prev()
                         .text(matches.length);
+
+
+
+
+                        // TODO parse each active result window to find common matches: ?????
+                        /*var text1 = $('#collapseBookI .card-body').text();
+                        var text2   = $('#collapseBookXXXI .card-body').text();
+                        var text3   = $('#collapseBookVII .card-body').text();
+
+                        var text1Words = text1.split(', ');
+                        var text2Words = text2.split(', ');
+                        var text3Words = text3.split(', ');
+
+                        var commonWords = $(text1Words).filter(text2Words).toArray();
+                            commonWords = $(text3Words).filter(commonWords).toArray();
+                        console.log(commonWords);*/
+
                     }
                     catch(err) {
                         console.warn(err);
@@ -102,23 +134,54 @@ NAEQuery.Controller = function() {
                 if( text.length == 0 ) {
                     $('#accordion-ciphers .card .card-body').text("");
                 }
-            });
+            }).focus();
 
             $('input.custom-control-input').change( function(){
                 let bookNumber = $(this).data('book-number');
-                $('#accordion-ciphers .filterable .card-header[data-book-number="'+ bookNumber +'"]')
-                .parents('.card')
-                .toggleClass('active');
+                let checkbox = $('#accordion-ciphers .filterable .card-header[data-book-number="'+ bookNumber +'"]');
+                if( !$(this).is(":checked") ) { $(checkbox).parents('.card').removeClass('active'); }
+                else { $(checkbox).parents('.card').addClass('active'); }
+
+                NAEQuery.Controller.clearCookie("checkbox-"+ bookNumber);
+                NAEQuery.Controller.setCookie("checkbox-"+ bookNumber, $(this).is(":checked"), 30);
         
                 // $('textarea.main-textarea').trigger('propertychange');
                 
-                let activeBooks = $("#accordion-filter #collapseFilterClassA input:checkbox:checked").map(function(){
-                    return $(this).data("book-number");
-                }).get(); 
-
-                let columnCount = (activeBooks.length == 1) ? 1 : (activeBooks.length < 8) ? 2 : 3;
-                $('#accordion-ciphers.card-columns').attr("data-columns", columnCount);
+                NAEQuery.Controller.resetFilterColumns();
             });
+
+            $(window).scroll(function() {
+                let _w = $(window);
+                let _hr = $('.hr-text');
+                let mainWrapper = $('.form-group .main-textarea-wrapper');
+
+                if( $(_w).scrollTop() > 244 ) {
+                    if( !$(mainWrapper).hasClass('snap') ) {
+                        $('body').css('padding-top', parseInt(($(mainWrapper).outerHeight()+45)+'px'));
+                        $(mainWrapper).addClass('snap');
+                        $(window).resize();
+                    }
+                    if( ($(_w).scrollTop()+0) > ($(_hr).offset().top-$(mainWrapper).outerHeight()) ) {
+                        $(mainWrapper).addClass('hide');
+                    }
+                    else {
+                        $(mainWrapper).removeClass('hide');
+                    }
+                }
+                else {
+                    $('body').css('padding-top', '1.5em');
+                    $(mainWrapper).removeClass('snap');
+                }
+            });
+            $(window).scroll();
+        },
+
+        resize: function() {
+            $(window).resize( function() {
+                let snappedElements = $('.form-group .main-textarea-wrapper');
+                $(snappedElements).width( $(snappedElements).parent().width() ); 
+            });
+            $(window).resize();
         },
 
         cleanData: function(array) {
@@ -128,6 +191,28 @@ NAEQuery.Controller = function() {
             return NAEQuery.Controller.unique(array).sort();
         },
 
+        resetFilterColumns: function() {
+            let activeBooks = $("#accordion-filter #collapseFilterClassA input:checkbox:checked").map(function(){
+                return $(this).data("book-number");
+            }).get(); 
+
+            let columnCount = (activeBooks.length == 1) ? 1 : (activeBooks.length < 8) ? 2 : 3;
+            $('#accordion-ciphers.card-columns').attr("data-columns", columnCount);
+        },
+
+        setCookie: function(name, value, daysToLive) {
+            var cookie = name + "=" + encodeURIComponent(value);
+            
+            if(typeof daysToLive === "number") {
+                cookie += "; max-age=" + (daysToLive*24*60*60) + "; path=/";
+                document.cookie = cookie;
+            }
+        },
+
+        clearCookie: function(name) {
+            NAEQuery.Controller.setCookie(name,"",-1);
+        },
+
         unique: function(array) {
             return $.grep(array, function(el, index) {
                 return index === $.inArray(el, array);
@@ -135,3 +220,30 @@ NAEQuery.Controller = function() {
         }
     }
 }();
+
+
+// Extension methods
+
+String.prototype.cleanAmpersands = function () {
+    return this.replace(/^&\s/, '')
+               .replace(/\s&$/, '')
+               .trim();
+}
+
+String.prototype.cleanCapitalization = function () {
+    return this.replace(/^i\s/, 'I ')
+               .replace(/\si$/, ' I')
+               .replace(/\si\s/, ' I ')
+               .trim();
+}
+String.prototype.cleanVerseNumbers = function () {
+    return this.replace(/{{/g, '<span class="verse">')
+               .replace(/}}/g, '</span>')
+               .trim();
+}
+String.prototype.removeVerseNumbers = function () {
+    return this.replace(/[0-9]/g, '')
+               .replace(/{{/g, '')
+               .replace(/}}/g, '')
+               .trim();
+}
