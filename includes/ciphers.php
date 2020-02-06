@@ -8,9 +8,9 @@
 </div>
 
 <div class="main-textarea-wrapper">
-    <textarea class="form-control main-textarea" placeholder="Enter words, numbers, phrases or excerpts" maxlength="10000" rows="1"></textarea>
+    <textarea class="form-control main-textarea" spellcheck="false" placeholder="Enter words, numbers, phrases or excerpts" maxlength="10000" rows="1"></textarea>
 
-    <div class="naeq-number-value text-center">NAEQ6 Value: <span>0</span></div>
+    <div class="naeq-number-value text-center">NAEQ<small>6</small> Value: <span>0</span></div>
 
     <div class="accordion" id="accordion-filter" role="tablist" aria-multiselectable="true">
         <div class="card subcard filter">

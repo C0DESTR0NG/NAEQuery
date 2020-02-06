@@ -28,8 +28,8 @@ ul.has-header { margin-top: -1em; }
 .form-group .error { display: none; color: red; padding: 0.65em 0 0 0; }
 .form-group .error.active { display: block; }
 .form-group .form-control { border: 1px solid rgba(55,47,41, 0.12); background-color: #F9F9F9; border-radius: 0!important; }
-.form-group .naeq-input { font-size: 1.4em; }
-.form-group .naeq-textarea { min-height: 120px; font-size: 1.4em; font-weight: 100; padding-bottom: 5em; padding-right: 2em; }
+.form-group .naeq-input { font-size: 1.4em; padding-left: 0.75em; }
+.form-group .naeq-textarea { min-height: 120px; font-size: 1.4em; font-weight: 100; padding-bottom: 5em; padding-right: 2em; padding-left: 0.725em; }
 .form-group .main-textarea { min-height: 100px; font-size: 1.4em; margin-top: 1em; padding-bottom: 2.3em; padding-right: 2em; }
 .form-group .main-textarea-wrapper { background-color: #fbfaf5!important; padding-top: 0; margin-left: 0; }
 .form-group .main-textarea-wrapper.snap { position: fixed; z-index: 112; top: 0; -webkit-transition: .25s ease-in; -moz-transition: all .25s ease-in; transition: all .25s ease-in; transform: inherit; }
@@ -51,8 +51,9 @@ textarea.form-control::placeholder { font-size: 1em; padding-left: .1em; color: 
 
 .naeq-number-value { position: relative; top: -2.35em; left: 0.5em; margin-bottom: -2.3em; background: #F9F9F9; padding: 0.4em 1em 0.4em 5.25%; width: 95%; font-size: 1.175em; font-family: 'tex_gyre_pagellaregular'; letter-spacing: 1px; font-weight: bolder; box-shadow: 0px -4px 10px #f9f9f9, 0px -4px 10px #f9f9f9; }
 .naeq-number-value span { text-shadow: 0.025em 0.025em 0.025em #36373c; letter-spacing: .1em; }
+.highlightTextarea .highlightTextarea-highlighter { margin-left: -0.1em; padding-bottom: 2em!important; }
 .highlightTextarea { background-color: #F9F9F9; }
-.highlightTextarea mark { background-color: rgba(0, 123, 255, 0.31)!important; }
+.highlightTextarea mark { background-color: rgba(0, 123, 255, 0.1)!important; border: 1px solid #007bff; padding: 0 0em; margin-left: -0.0085em; }
 .text-counter { position: relative; top: 17px; right: -0.7em; }
 
 .accordion { padding: 1em 0 3em; }
@@ -60,6 +61,7 @@ textarea.form-control::placeholder { font-size: 1em; padding-left: .1em; color: 
 .accordion .card a:hover { color: transparent!important; }
 .accordion .card-header { border-radius: 0!important; border-bottom: none; background-color: #36373c; padding: 0.55rem 0.75rem!important; }
 .accordion .card-header.featured { background-color: rgba(18, 52, 86, 0.82); }
+.accordion .card.filterable.active .card-body.featured { border-color: rgba(18, 52, 86, 0.5)!important; border-width: 2px!important; }
 .accordion .card.above-subcard { border: 1px solid rgba(0,0,0,.125); }
 .accordion .card.subcard { margin: 0px 22px; border-top: none; }
 .accordion .card.subcard .card-header { padding: 0.45rem 1.25rem; background: #eee; -webkit-transition: .25s ease-out; -moz-transition: all .25s ease-out; transition: all .25s ease-out; }
@@ -136,7 +138,7 @@ blockquote.last { margin-bottom: 1.5em!important; }
 .jqcloud span { font-family: 'PT Serif', sans-serif!important; }
 
 footer { font-size: 1.3em; padding-bottom: 1em; }
-footer .quote { padding: 5em 0; font-size: 0.8em!important; }
+footer .quote { padding: 5em 0; font-size: 0.8em!important; opacity: .45; color: #818078; }
 footer p.copyright { text-align: center; padding: 2em 0 0 0; margin-bottom: 0; opacity: .42; font-family: 'Open Sans', sans-serif!important; }
 footer p.version { text-align: center; padding: 0; opacity: .42; font-size: .8em; font-family: 'tex_gyre_pagellaregular', sans-serif!important; letter-spacing: 1px; }
 footer p.version a { color: #212529; } 

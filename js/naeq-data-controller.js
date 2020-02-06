@@ -155,9 +155,9 @@ NAEQuery.Controller = function() {
                 let _hr = $('.hr-text');
                 let mainWrapper = $('.form-group .main-textarea-wrapper');
 
-                if( $(_w).scrollTop() > 244 ) {
+                if( $(_w).scrollTop() > 254 ) {
                     if( !$(mainWrapper).hasClass('snap') ) {
-                        $('body').css('padding-top', parseInt(($(mainWrapper).outerHeight()+45)+'px'));
+                        $('body').css('padding-top', parseInt(($(mainWrapper).outerHeight()+49)+'px'));
                         $(mainWrapper).addClass('snap');
                         $(window).resize();
                     }

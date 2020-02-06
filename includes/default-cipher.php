@@ -3,7 +3,10 @@
 <div class="row">
     <div class="col-md-10 offset-md-1 text-center">
         <h2>Find matching cipher values by number</h2>
-        <p>Did you find a unique df df df d ff, use the exclusive NAEQ<small>UERY</small> decipher tool to find matching cipher values. Find matching words, given contactee names or <em>noms de plume</em> by number</p>
+        <p>
+            Did you find a unique word, phrase, or <em>nom de plume</em>? NAEQ<small>UERY</small> provides an exclusive tool to
+            <br class="hidden-md-down"> highlight significant words by number value. "112 &hellip; tells you you’re in <em>important territory</em>"
+        </p>
     </div>
 </div>
 
@@ -35,7 +38,7 @@
                     </div>
                 </div>
 
-                <textarea class="form-control naeq-textarea" placeholder="Enter words, numbers, phrases or excerpts" maxlength="10000" rows="7"></textarea>
+                <textarea class="form-control naeq-textarea" spellcheck="false" placeholder="Enter words, numbers, phrases or excerpts" maxlength="10000" rows="7"></textarea>
                 
                 <div class="naeq-analyze-row">
                     <div class="row text-right">

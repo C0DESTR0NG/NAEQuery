@@ -159,7 +159,7 @@ $(document).ready( function() {
 
             var _output = _waterfall( $('.naeq-textarea').val() );
 
-            $('#collapseDefaultCipher1 .cipher-matches').text( _cipherArray.uniqueArray().join(", ") ).fadeIn();
+            $('#collapseDefaultCipher1 .cipher-matches').text( _cipherArray.uniqueArray().sort().join(", ") ).fadeIn();
             if( $('#collapseDefaultCipher1 .card-body').text().length == 0 ) {
                 $('#collapseDefaultCipher1 .card-body').text("No matches.");
                 $('.cloud-wrapper').html("");
@@ -173,10 +173,7 @@ $(document).ready( function() {
                     resizable: true
                 });
             }
-            $('#json').text( JSON.stringify(_output, undefined, 2) );
-
-            // $('body,html').animate( { scrollTop : $('.cloud-wrapper').offset().top +'px' } , 600);
-
+            
             try {
                 if( $('.naeq-textarea').val().length > 0 ) {
                     gtag('event', 'analyze', {

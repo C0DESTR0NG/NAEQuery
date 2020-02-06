@@ -13,7 +13,7 @@
 
     <!-- Card body -->
     <div id="collapseBookXXXI" class="collapse" role="tabpanel" aria-labelledby="headingBookXXXI" data-parent="#headingBookXXXI">
-        <div class="card-body"></div>
+        <div class="card-body featured"></div>
     </div>
 
 </div>

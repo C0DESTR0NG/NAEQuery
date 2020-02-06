@@ -50,7 +50,7 @@
                     </h1>
 
                     <div class="about">
-                        <p>NAEQ<small>UERY</small> is a lightweight algorithm that helps highlight significant words, given contactee names or <em>noms de plume</em> within paragraphs, phrases or excerpts. The algorithm sums up the New Aeon English Qabala cipher equivalent letter values for each consecutive set of words. The result set outputs an array of word combinations and their summed NAEQ6 values.</p>
+                        <p>NAEQ<small>UERY</small> is a lightweight algorithm that helps highlight significant words, given contactee names or <em>noms de plume</em> within paragraphs, phrases or excerpts. The algorithm sums up the New Aeon English Qabala cipher equivalent letter values for each consecutive set of words. The result set outputs an array of word combinations and their summed NAEQ<small>6</small> values.</p>
                         <p>The algorithm highlights all words or phrases that equal <strong>your inputted cipher value</strong>.</p>
 
                         <p>The publications of the A∴A∴ divide themselves into five classes.</p>
