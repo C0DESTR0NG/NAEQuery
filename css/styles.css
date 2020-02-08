@@ -25,7 +25,7 @@ ul.has-header { margin-top: -1em; }
 .hr-text:before { content: ''; background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(#818078), to(transparent)); background: linear-gradient(to right, transparent, #818078, transparent); position: absolute; left: 0; top: 50%; width: 100%; height: 1px; }
 
 .form-group { min-height: 50vh; }
-.form-group .error { display: none; color: red; padding: 0.65em 0 0 0; }
+.form-group .error { display: none; color: red; padding: 0 0 0 1.3em; margin-top: -0.5em; }
 .form-group .error.active { display: block; }
 .form-group .form-control { border: 1px solid rgba(55,47,41, 0.12); background-color: #F9F9F9; border-radius: 0!important; }
 .form-group .naeq-input { font-size: 1.4em; padding-left: 0.75em; }
@@ -34,9 +34,12 @@ ul.has-header { margin-top: -1em; }
 .form-group .main-textarea-wrapper { background-color: #fbfaf5!important; padding-top: 0; margin-left: 0; }
 .form-group .main-textarea-wrapper.snap { position: fixed; z-index: 112; top: 0; -webkit-transition: .25s ease-in; -moz-transition: all .25s ease-in; transition: all .25s ease-in; transform: inherit; }
 .form-group .main-textarea-wrapper.snap.hide { transform: translateY(-100%); }
+.form-group .form-check { margin-top: 0.5em; }
+.form-group .form-check .form-check-label { padding-right: 2em; font-family: 'tex_gyre_pagellaregular'; font-size: 1.2em; } 
+.form-group .form-check .form-check-input { position: relative; top: -2px; margin: 0 .45em 0 0; }
 .form-group .cipher-matches { display: none; padding: 0 0 2em; }
 .form-group .naeq-analyze { background-color: rgba(18, 52, 86, 0.82); border: none; margin-top: -1.7em; position: relative; top: 5px; z-index: 100; }
-.form-group .naeq-analyze-row { background-color: #f9f9f9; width: 97%; position: relative; top: -4.9em; margin-bottom: -1.5em; padding: 0.9em; left: 2px; }
+.form-group .naeq-analyze-row { background-color: #f9f9f9; width: 97%; position: relative; top: -4.85em; margin-bottom: -1.5em; padding: 0.9em; left: 2px; }
 .form-control:focus { box-shadow: 0 0 .25em 0em rgba(55,47,41, .2); } 
 
 input.form-control { margin-bottom: 0.75em; font-size: 1em; height: 46px; }

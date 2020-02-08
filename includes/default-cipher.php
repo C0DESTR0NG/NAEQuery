@@ -4,8 +4,7 @@
     <div class="col-md-10 offset-md-1 text-center">
         <h2>Find matching cipher values by number</h2>
         <p>
-            Did you find a unique word, phrase, or <em>nom de plume</em>? NAEQ<small>UERY</small> provides an exclusive tool to
-            <br class="hidden-md-down"> highlight significant words by number value. "112 &hellip; tells you you’re in <em>important territory</em>"
+            Did you find a unique word, phrase, or <em>nom de plume</em>? NAEQ<small>UERY</small> provides an exclusive tool to highlight significant<br class="hidden-md-down"> words by number value using Cipher 6 or Cipher X – "112 &hellip; tells you you’re in <em>important territory</em>"
         </p>
     </div>
 </div>
@@ -32,9 +31,21 @@
                 <div class="row">
                     <div class="col-md-6">
                         <input type="number" class="form-control naeq-input" placeholder="Enter a cipher number value (ie: 112)" pattern="\d*" min="0" onkeypress="return event.charCode != 45">
+                        <label class="error">You must enter a cipher number value and text</label>
                     </div>
                     <div class="col-md-6">
-                        <label class="error">You must enter a cipher number value and text</label>
+                        
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input class="form-check-input radio-inline" type="radio" name="cipherType" value="cipher6" checked>
+                                Cipher 6 (ALW)
+                            </label>
+                            <label class="form-check-label">
+                                <input class="form-check-input radio-inline" type="radio" name="cipherType" value="cipherX">
+                                Cipher X (KFW)
+                            </label>
+                        </div>
+
                     </div>
                 </div>
 

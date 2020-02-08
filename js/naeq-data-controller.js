@@ -68,6 +68,8 @@ NAEQuery.Controller = function() {
             NAEQuery.Controller.resize();
 
             $('textarea.main-textarea').bind('input propertychange', function() {
+                _ =  _cipher6;
+                
                 let text = _clean($(this).val());
                 let cipherValue = _cipher(text, false);
                 let allAvalilableBooks = $("#accordion-filter #collapseFilterClassA input:checkbox").map(function(){
@@ -148,6 +150,10 @@ NAEQuery.Controller = function() {
                 // $('textarea.main-textarea').trigger('propertychange');
                 
                 NAEQuery.Controller.resetFilterColumns();
+            });
+
+            $('.form-check input.form-check-input[name="cipherType"]').change( function(){
+                _ = ($(this).val() == "cipher6") ? _cipher6 : _cipherX;
             });
 
             $(window).scroll(function() {

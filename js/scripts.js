@@ -2,16 +2,16 @@
 // Import naeq-data-controller.js
 var script = document.createElement('script');
 script.src = "js/naeq-data-controller.js";
-script.onload = function () {
-    NAEQuery.Controller.init();
-};
+script.onload = function () { NAEQuery.Controller.init(); };
 document.head.appendChild(script);
 
 
 
 var _cipherArray = [];
 var _cipherValue = 0;
-var _ = ['∴','a','l','w','h','s','d','o','z','k','v','g','r','c','n','y','j','u','f','q','b','m','x','i','t','e','p'];
+var _cipher6 = ['∴','a','l','w','h','s','d','o','z','k','v','g','r','c','n','y','j','u','f','q','b','m','x','i','t','e','p'];
+var _cipherX = ['∴','k','f','w','r','m','d','y','t','a','v','q','h','c','x','o','j','e','l','g','b','s','n','i','z','u','p'];
+var _ = [];
 
 String.prototype.format = function() {
    var content = this;
@@ -30,26 +30,19 @@ Array.prototype.uniqueArray = function() {
 }
 
 function _clean( text ) {
-
     var _t = text.toLowerCase();
         _t = _t.replace(/\n/g, " ");
         _t = _t.replace(/[^\w\s]/gi, '');
-    
     return _t;
-
 }
 
 function _waterfall( text ) {
-
     _cipherArray = [];
-
     var _w = _clean(text);
         _w = _w.split(' ');
         _w = _w.filter(n => n);
-
-    var _a = [];
-
     var _l = _w.length;
+    var _a = [];
     for (var i = 0; i < _l; i++) {
         var _s = '{0}'.format(_w[i]);
         _a.push({ word: _s, value: _cipher(_s) }); 
@@ -76,10 +69,8 @@ function _waterfall( text ) {
 }
 
 function _cipher( text, matchable = true ) {
-
     let _words = _clean(text).split(' ');
     let _s = 0;
-
     _words.forEach( _w => {
         // Check if only a number
         if( _w.match(/^[0-9]+$/) ) {    
@@ -139,6 +130,8 @@ function constructCloudArray(arr) {
 $(document).ready( function() {
     var maxChar = 10000;
     var charRemaining = maxChar;
+
+    _ = _cipher6;
 
     $('.naeq-textarea').keyup(function () {
         charRemaining = maxChar - $(this).val().length;
