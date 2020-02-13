@@ -32,7 +32,8 @@ Liber CCCLXX: Liber A'ash Vel Capricoroni Pneumatici Sub Figuræ CCCLXX
 Liber CD: Liber Tau Vel Kabbalæ Trium Literarum Sub Figuræ CD
 Liber DCCCXIII: Vel Ararita Sub Figuræ DLXX*/
     
-var naeqData = [];
+var topSnapElementBreakpoint,
+    naeqData = [];
 
 NAEQuery.Controller = function() {
 	return {
@@ -65,11 +66,17 @@ NAEQuery.Controller = function() {
         },
 
         bindEvents: function() {
+            
+            let isTouchDevice = 'ontouchstart' in document.documentElement;
+	        if( isTouchDevice ) {
+                $('body').addClass('touch');
+            }
+            
             NAEQuery.Controller.resize();
 
             $('textarea.main-textarea').bind('input propertychange', function() {
                 _ =  _cipher6;
-                
+
                 let text = _clean($(this).val());
                 let cipherValue = _cipher(text, false);
                 let allAvalilableBooks = $("#accordion-filter #collapseFilterClassA input:checkbox").map(function(){
@@ -136,13 +143,30 @@ NAEQuery.Controller = function() {
                 if( text.length == 0 ) {
                     $('#accordion-ciphers .card .card-body').text("");
                 }
-            }).focus();
+            })
+
+            setTimeout(function(){ 
+                $('html,body').animate( { scrollTop : '1px' }, 1); 
+                if( $(window).width() > 768 ) { $('textarea.main-textarea').focus(); }
+            }, 1);
 
             $('input.custom-control-input').change( function(){
                 let bookNumber = $(this).data('book-number');
                 let checkbox = $('#accordion-ciphers .filterable .card-header[data-book-number="'+ bookNumber +'"]');
                 if( !$(this).is(":checked") ) { $(checkbox).parents('.card').removeClass('active'); }
-                else { $(checkbox).parents('.card').addClass('active'); }
+                else { 
+                    $(checkbox).parents('.card').addClass('active');
+                    
+                    try {
+                        gtag('event', 'filter_on', {
+                            'event_category': 'Liber Book Filter',
+                            'event_label': bookNumber.toUpperCase() 
+                        });
+                    }
+                    catch(err) {
+                        console.warn(err);
+                    }
+                }
 
                 NAEQuery.Controller.clearCookie("checkbox-"+ bookNumber);
                 NAEQuery.Controller.setCookie("checkbox-"+ bookNumber, $(this).is(":checked"), 30);
@@ -157,17 +181,19 @@ NAEQuery.Controller = function() {
             });
 
             $(window).scroll(function() {
+                let mainWrapper = $('.form-group .main-textarea-wrapper');
                 let _w = $(window);
                 let _hr = $('.hr-text');
-                let mainWrapper = $('.form-group .main-textarea-wrapper');
-
-                if( $(_w).scrollTop() > 254 ) {
+                
+                let topBreakpoint = topSnapElementBreakpoint + 5;
+                let bodyBreakpoint = (_w.width() <= 550) ? 32 : 49;
+                
+                if( $(_w).scrollTop() > topBreakpoint ) {
                     if( !$(mainWrapper).hasClass('snap') ) {
-                        $('body').css('padding-top', parseInt(($(mainWrapper).outerHeight()+49)+'px'));
+                        $('body').css('padding-top', parseInt(($(mainWrapper).outerHeight()+bodyBreakpoint)+'px'));
                         $(mainWrapper).addClass('snap');
-                        $(window).resize();
                     }
-                    if( ($(_w).scrollTop()+0) > ($(_hr).offset().top-$(mainWrapper).outerHeight()) ) {
+                    if( $(_w).scrollTop() > ($(_hr).offset().top-$(mainWrapper).outerHeight()) ) {
                         $(mainWrapper).addClass('hide');
                     }
                     else {
@@ -180,12 +206,25 @@ NAEQuery.Controller = function() {
                 }
             });
             $(window).scroll();
+
+
+            // Mobile fixed position / scroll fix
+            if( $('body').hasClass('touch') ) {
+                $(document).on('scroll', function(){
+                    $(window).scroll();
+                });
+            }
         },
 
         resize: function() {
             $(window).resize( function() {
                 let snappedElements = $('.form-group .main-textarea-wrapper');
-                $(snappedElements).width( $(snappedElements).parent().width() ); 
+                $(snappedElements).width( $(snappedElements).parent().width() );
+                
+                topSnapElementBreakpoint = (($('.about.active').length) ? $('.about.active').outerHeight() : 0) +
+                                           $('.row.cipher-wrapper').outerHeight() +
+                                           parseInt($('body').css('padding-top')) +
+                                           $('h1').outerHeight();
             });
             $(window).resize();
         },
@@ -226,6 +265,7 @@ NAEQuery.Controller = function() {
         }
     }
 }();
+
 
 
 // Extension methods

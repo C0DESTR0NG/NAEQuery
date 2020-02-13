@@ -2,7 +2,9 @@
 // Import naeq-data-controller.js
 var script = document.createElement('script');
 script.src = "js/naeq-data-controller.js";
-script.onload = function () { NAEQuery.Controller.init(); };
+script.onload = function () {
+    NAEQuery.Controller.init();
+};
 document.head.appendChild(script);
 
 
@@ -169,9 +171,17 @@ $(document).ready( function() {
             
             try {
                 if( $('.naeq-textarea').val().length > 0 ) {
+                    
                     gtag('event', 'analyze', {
                         'event_category': 'NAEQ Text',
                         'event_label': $('.naeq-textarea').val() 
+                    });
+
+                    let selectedCipherType = $('.form-check input.form-check-input[name="cipherType"]:checked').val().replace("cipher","Cipher ");
+
+                    gtag('event', 'analyze', {
+                        'event_category': 'NAEQ Text Cipher Type',
+                        'event_label': selectedCipherType 
                     });
                 }
             }
@@ -188,7 +198,7 @@ $(document).ready( function() {
     });
 
     $('h1 .about-btn').click( function() {
-        $('.about').slideToggle();
+        $('.about').slideToggle().toggleClass('active');
     });
 
 

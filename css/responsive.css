@@ -1,0 +1,226 @@
+
+@media (min-width: 1200px) {
+    .container { max-width: 1280px; }
+}
+
+@media screen and (max-width: 1081px) and (orientation: landscape) { 
+    
+    .touch h1 { font-size: 2em; letter-spacing: 2px; }
+    .touch h2 { letter-spacing: -0.025em; padding-left: 0.5em; padding-right: 0.5em; }
+
+    .touch .text-center p { padding: 0 1.2em; font-size: 1.1em; }
+    .touch .text-center p br.hidden-md-down { display: none; }
+    
+    .touch .card.filter .card-body { padding: 1.25rem 1.3em; }
+    .touch #accordion-ciphers.card-columns { 
+        -webkit-column-count: 2!important; -moz-column-count: 2!important; column-count: 2!important; -webkit-column-gap: 0.5em; -moz-column-gap: 0.5em; column-gap: 0.5em; 
+    }
+    .touch #accordion-ciphers.card-columns[data-columns="1"]  { 
+        -webkit-column-count: 1!important; -moz-column-count: 1!important; column-count: 1!important; -webkit-column-gap: 0.5em; -moz-column-gap: 0.5em; column-gap: 0.5em; 
+    }
+
+    .touch .form-group .form-check { margin-top: -0.3em; }
+}
+
+@media all and (max-width: 991px) {
+
+    h1 { font-size: 2em; letter-spacing: 2px; }
+    h2 { letter-spacing: 0.005em; padding-left: 2.5em; padding-right: 2.5em; }
+
+    .form-group .error {padding: 0.45em 0 0 0; line-height: 1em; }
+
+    textarea:focus.form-control::-webkit-input-placeholder { color: transparent!important; }
+    textarea:focus.form-control::-moz-placeholder { color: transparent!important; }
+    textarea:focus.form-control:-ms-input-placeholder { color: transparent!important; }
+    textarea:focus.form-control::placeholder { color: transparent!important; }
+    input:focus.form-control::-webkit-input-placeholder { color: transparent!important; }
+    input:focus.form-control::-moz-placeholder { color: transparent!important; }
+    input:focus.form-control:-ms-input-placeholder { color: transparent!important; }
+    input:focus.form-control::placeholder { color: transparent!important; }
+
+    input.form-control { font-size: 1.6em; height: 70px; }
+    input.form-control::-webkit-input-placeholder { font-size: 16px; font-weight: 400; position: relative; top: 8px; }
+    input.form-control::-moz-placeholder { font-size: 16px; font-weight: 400; position: relative; top: 8px; }
+    input.form-control:-ms-input-placeholder { font-size: 16px; font-weight: 400; position: relative; top: 8px; }
+    input.form-control::placeholder { font-size: 16px; font-weight: 400; position: relative; top: 6px; }
+
+    #accordion-ciphers.card-columns h5 { font-size: 0.64em!important; }
+    #accordion-ciphers.card-columns { 
+        -webkit-column-count: 2!important; -moz-column-count: 2!important; column-count: 2!important; -webkit-column-gap: 0.5em; -moz-column-gap: 0.5em; column-gap: 0.5em; 
+    }
+    #accordion-ciphers.card-columns[data-columns="1"]  { 
+        -webkit-column-count: 1!important; -moz-column-count: 1!important; column-count: 1!important; -webkit-column-gap: 0.5em; -moz-column-gap: 0.5em; column-gap: 0.5em; 
+    }
+    #accordion-filter .card.filter .card-body { flex: inherit; width: 85%; max-height: 140px; overflow-y: scroll; display: inline-block; padding: .25rem 1em; position: relative; left: 51%; transform: translateX(-50%);}
+
+}
+
+@media all and (max-width: 767px) {
+
+    body { padding: 1em 0.85em 1em; }
+
+    p { text-align: center; font-size: 0.8em; padding-left: 0.3em; padding-right: 0.3em; }
+    blockquote p { text-align: left; }
+
+    .form-group .error.active { display: block; position: relative; top: -1em; }
+
+    input.form-control { font-size: 1.6em; height: 70px; }
+    input.form-control::-webkit-input-placeholder { font-size: 16px; font-weight: 400; position: relative; top: 8px; }
+    input.form-control::-moz-placeholder { font-size: 16px; font-weight: 400; position: relative; top: 8px; }
+    input.form-control:-ms-input-placeholder { font-size: 16px; font-weight: 400; position: relative; top: 8px; }
+    input.form-control::placeholder { font-size: 16px; font-weight: 400; position: relative; top: 8px; }
+
+    .text-counter { position: relative; top: 30px; }
+
+}
+
+@media screen and (max-width: 768px) and (orientation: landscape) { 
+
+    .container { max-width: 100%; }
+
+    h2 { letter-spacing: 0.005em; padding-left: 2.5em; padding-right: 2.5em; }
+
+    
+    .form-group .form-check { margin: -0.4em 0 0.6em; position: relative; left: 50%; transform: translateX(-50%); width: auto; display: inline-block; }
+    .form-group .form-check .form-check-input { top: 0px; }
+
+    textarea.form-control::-webkit-input-placeholder { font-size: .65em; text-align: center; padding-left: .1em; color: #bbb; font-weight: 100; line-height: 2.2em; }
+    textarea.form-control::-moz-placeholder { font-size: .65em; text-align: center; padding-left: .1em; color: #bbb; font-weight: 100; line-height: 2.2em; }
+    textarea.form-control:-ms-input-placeholder { font-size: .65em; text-align: center; padding-left: .1em; color: #bbb; font-weight: 100; line-height: 2.2em; }
+    textarea.form-control::placeholder { text-align: center; padding-left: 2.3em; }
+    
+    input.form-control::-webkit-input-placeholder { font-size: .65em; text-align: center; padding-left: .1em; color: #bbb; font-weight: 100; line-height: 2.2em; }
+    input.form-control::-moz-placeholder { font-size: .65em; text-align: center; padding-left: .1em; color: #bbb; font-weight: 100; line-height: 2.2em; }
+    input.form-control:-ms-input-placeholder { font-size: .65em; text-align: center; padding-left: .1em; color: #bbb; font-weight: 100; line-height: 2.2em; }
+    input.form-control::placeholder { font-size: .65em; text-align: center; padding-left: 0; color: #bbb; font-weight: 100; line-height: 1.2em; }
+    input.naeq-input { text-align: center; height: 47px; }
+
+    blockquote { margin: 1em 0 4.5em; padding: 1em 0.5em 0.8em 0.5em; }
+
+    .text-counter { top: 17px; }
+}
+
+@media all and (max-width: 550px) {
+
+    body { padding: 1em 0.2em 1em; overflow-y: scroll; -webkit-overflow-scrolling: touch; }
+
+    h1 { padding-bottom: 0.7em; letter-spacing: -0.01em; }
+    h1 a.about-btn { left: -10px; }
+    h2 { display: none; padding: 1.2em 0.8em 0.42em; font-size: 1.1em; letter-spacing: 0.02em; }
+
+    .form-group .main-textarea { margin-top: 0.4em; border: 1px solid rgba(55,47,41, 0.3); }
+
+    textarea { padding-right: .85em!important; }
+
+    textarea.form-control::-webkit-input-placeholder { font-size: .65em; text-align: center; padding-left: .1em; color: #bbb; font-weight: 100; line-height: 2.2em; }
+    textarea.form-control::-moz-placeholder { font-size: .65em; text-align: center; padding-left: .1em; color: #bbb; font-weight: 100; line-height: 2.2em; }
+    textarea.form-control:-ms-input-placeholder { font-size: .65em; text-align: center; padding-left: .1em; color: #bbb; font-weight: 100; line-height: 2.2em; }
+    textarea.form-control::placeholder { font-size: .65em; text-align: center; padding-left: .1em; color: #bbb; font-weight: 100; line-height: 2.2em; }
+    textarea.main-textarea { text-align: center; }
+    textarea.naeq-textarea.form-control::-webkit-input-placeholder { line-height: 1.2em; }
+    textarea.naeq-textarea.form-control::-moz-placeholder { line-height: 1.2em; }
+    textarea.naeq-textarea.form-control:-ms-input-placeholder { line-height: 1.2em; }
+    textarea.naeq-textarea.form-control::placeholder { line-height: 1.2em; }
+    textarea.naeq-textarea { height: 240px!important; padding-top: 0.8em; }
+
+    .naeq-number-value { letter-spacing: 0.025em; } 
+
+    #accordion-filter .card.filter .card-body { flex: inherit; width: 92%; max-height: 240px; overflow-y: scroll; display: inline-block; padding: .25rem .25em; }
+    #accordion-filter .card.filter .card-body .custom-checkbox { margin: 1em 0 1em 0.7em; }
+    #accordion-filter .card.filter .card-body label { line-height: 1.79em; width: 75%; }
+
+    #accordion-ciphers { padding: 0.9em 0.63em 2.8em; }
+    #accordion-ciphers.card-columns,
+    #accordion-ciphers.card-columns .card.filterable .card-body ul { 
+        -webkit-column-count: 1!important; -moz-column-count: 1!important; column-count: 1!important; -webkit-column-gap: 0.5em; -moz-column-gap: 0.5em; column-gap: 0.5em; 
+    }
+    #accordion-ciphers.card-columns h5 { font-size: 0.74em!important; text-indent: -1.31em!important; letter-spacing: .025em!important; padding-bottom: 0.2em!important; }
+
+    .form-group .form-check { margin: -0.3em 0 0.6em 0.5em; padding: 0; position: relative; left: 50%; transform: translateX(-50%); width: auto; display: table; font-size: 0.9em; }
+    .form-group .form-check .form-check-label { font-size: .9em; margin-bottom: 0.4em; padding-right: 1.3em; }
+    .form-group .form-check .form-check-input { top: 1px; }
+
+    .accordion .card.subcard { margin: 0px 10px; }
+    .accordion .card.subcard h5 { font-size: 0.75em; padding-bottom: 0.5em; letter-spacing: .025em; left: 48.2%; } 
+
+    input.form-control::-webkit-input-placeholder { font-size: .65em; text-align: center; padding-left: .1em; color: #bbb; font-weight: 100; line-height: 2.2em; }
+    input.form-control::-moz-placeholder { font-size: .65em; text-align: center; padding-left: .1em; color: #bbb; font-weight: 100; line-height: 2.2em; }
+    input.form-control:-ms-input-placeholder { font-size: .65em; text-align: center; padding-left: .1em; color: #bbb; font-weight: 100; line-height: 2.2em; }
+    input.form-control::placeholder { font-size: .65em; text-align: center; padding-left: 0; color: #bbb; font-weight: 100; line-height: 1.2em; }
+    input.naeq-input { text-align: center; height: 47px; }
+
+    .form-group .naeq-analyze-row { margin-bottom: -4.7em; }
+    .form-group .cipher-matches { padding: 1.3em 0 0.2em; }
+
+    .card.filter .quotes .card-body { padding: 1.25rem 1.2em; }
+
+    blockquote { margin: 1em 0 4.5em; padding: 1em 0.5em 0.8em 0.5em; }
+
+    .text-counter { font-size: 0.8em; top: 17px; }
+
+    footer .social-buttons { width: auto; display: block; position: relative; left: 50%; transform: translateX(-50%); text-align: center; }
+    footer .social-button { margin-right: .7em; margin-bottom: .25em; display: block; width: 100%; }
+}
+
+@media all and (max-width: 340px) {
+    
+    h1 { font-size: 1.8em; }
+
+}
+
+
+
+
+/* hidden br classes */
+
+@media (max-width: 575px) {
+    .hidden-xs-down {
+      display: none !important;
+    }
+  }
+
+@media (min-width: 576px) {
+    .hidden-sm-up {
+        display: none !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .hidden-sm-down {
+        display: none !important;
+    }
+}
+
+@media (min-width: 768px) {
+    .hidden-md-up {
+        display: none !important;
+    }
+}
+
+@media (max-width: 991px) {
+    .hidden-md-down {
+        display: none !important;
+    }
+}
+
+@media (min-width: 992px) {
+    .hidden-lg-up {
+        display: none !important;
+    }
+}
+
+@media (max-width: 1199px) {
+    .hidden-lg-down {
+        display: none !important;
+    }
+}
+
+@media (min-width: 1200px) {
+    .hidden-xl-up {
+        display: none !important;
+    }
+}
+
+.hidden-xl-down {
+    display: none !important;
+}

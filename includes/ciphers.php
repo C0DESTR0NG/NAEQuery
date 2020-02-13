@@ -1,16 +1,17 @@
-<div class="row">
+<div class="row cipher-wrapper">
     <div class="col-md-10 offset-md-1 text-center">
         <h2>Apply the cipher to Liber AL and other Class “A” texts</h2>
         <p>
             NAEQ<small>UERY</small> let's you apply your curious findings to nine Class "A" texts, including <em>The Book of the Law</em>.
-            <br class="hidden-md-down"> Use the filter to compare multiple books side-by-side. Book verse numbers are visually included in your cipher results.</p>
+            <br class="hidden-md-down"> Use the filter to compare multiple books side-by-side. Book verse numbers are visually included in your cipher results.
+        </p>
     </div>
 </div>
 
 <div class="main-textarea-wrapper">
     <textarea class="form-control main-textarea" spellcheck="false" placeholder="Enter words, numbers, phrases or excerpts" maxlength="10000" rows="1"></textarea>
 
-    <div class="naeq-number-value text-center">NAEQ<small>6</small> Value: <span>0</span></div>
+    <div class="naeq-number-value text-center">NAEQ Value: <span>0</span></div>
 
     <div class="accordion" id="accordion-filter" role="tablist" aria-multiselectable="true">
         <div class="card subcard filter">

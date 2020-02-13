@@ -4,7 +4,7 @@
     <div class="col-md-10 offset-md-1 text-center">
         <h2>Find matching cipher values by number</h2>
         <p>
-            Did you find a unique word, phrase, or <em>nom de plume</em>? NAEQ<small>UERY</small> provides an exclusive tool to highlight significant<br class="hidden-md-down"> words by number value using Cipher 6 or Cipher X – "112 &hellip; tells you you’re in <em>important territory</em>"
+            Have you found a unique word, phrase, or <em>nom de plume</em>? NAEQ<small>UERY</small> provides an exclusive tool to highlight significant<br class="hidden-md-down"> words by number value using Cipher 6 or Cipher X ― "112 &hellip; tells you you’re in <em>important territory</em>"
         </p>
     </div>
 </div>
@@ -26,7 +26,7 @@
         </div>
 
         <!-- Card body -->
-        <div id="collapseDefaultCipher1" class="collapse show" role="tabpanel" aria-labelledby="headingDefaultCipher1" data-parent="#accordion">
+        <div id="collapseDefaultCipher1" class="collapse show" role="tabpanel" aria-labelledby="headingDefaultCipher1" data-parent="#headingDefaultCipher1">
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-6">
@@ -49,7 +49,7 @@
                     </div>
                 </div>
 
-                <textarea class="form-control naeq-textarea" spellcheck="false" placeholder="Enter words, numbers, phrases or excerpts" maxlength="10000" rows="7"></textarea>
+                <textarea class="form-control naeq-textarea" spellcheck="false" placeholder="Enter words, numbers, phrases or excerpts" maxlength="10000" rows="5"></textarea>
                 
                 <div class="naeq-analyze-row">
                     <div class="row text-right">
@@ -85,7 +85,7 @@
         </div>
 
         <!-- Card body -->
-        <div id="collapseDefaultCipher2" class="collapse quotes" role="tabpanel" aria-labelledby="headingDefaultCipher2" data-parent="#accordion">
+        <div id="collapseDefaultCipher2" class="collapse quotes" role="tabpanel" aria-labelledby="headingDefaultCipher2" data-parent="#headingDefaultCipher2">
             <div class="card-body">
                 <blockquote>
                     <p><q>112 = WE ARE ONE, the code phrase that tells you you’re in important territory, but also THY WIFE and LETTER and WORDS AND SIGNS and INK AND BLACK and ALL HOUSE OF GOD and THE WHEEL and I AM 49 PLACE and, as you noted CROSS 52 I FLAP.</q></p>
