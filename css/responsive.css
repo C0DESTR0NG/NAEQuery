@@ -3,6 +3,10 @@
     .container { max-width: 1280px; }
 }
 
+@media (max-width: 1200px) {
+    .card.filter .card-body { padding: 1.25rem 1em; }
+}
+
 @media screen and (max-width: 1081px) and (orientation: landscape) { 
     
     .touch h1 { font-size: 2em; letter-spacing: 2px; }

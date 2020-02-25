@@ -3,17 +3,17 @@
     <head>
         <meta charset="utf-8">
         <title>NAEQuery Cipher Tool | Apply the cipher to Liber AL and other Class “A” texts</title>
-        <meta name="description" content="NAEQuery is a lightweight algorithm that helps highlight significant words or noms de plume within paragraphs, phrases or excerpts. Apply the cipher to Liber AL and other Class “A” texts.">
-        <meta name="keywords" content="NAEQ,New Aeon English Qabala,cipher,secret cipher,hellier,wriste,112,indrid cold"> 
+        <meta name="description" content="NAEQuery is a lightweight algorithm using the New Aeon English Qabalah to help highlight significant words or noms de plume across many Class “A” texts.">
+        <meta name="keywords" content="NAEQ,New Aeon English Qabala,cipher,secret cipher,hellier,wriste,112,indrid cold,naequery"> 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="apple-mobile-web-app-capable" content="yes">
 
         <meta property="og:title" content="NAEQuery Cipher Tool">
         <meta property="og:description" content="Apply the cipher to Liber AL and other Class “A” texts">
-        <meta property="og:image" content="https://www.naequery.com/naeq_banner.png">
+        <meta property="og:image" content="https://www.naequery.com/naeq_banner.png?v=02142020">
         <meta property="og:url" content="https://www.naequery.com">
-        <meta property="og:image:width" content="1000">
-		<meta property="og:image:height" content="636">
+        <meta property="og:image:width" content="1200">
+		<meta property="og:image:height" content="630">
 		<meta property="og:type" content="website">
 
         <link rel="icon" type="image/png" href="naeq_favicon.png">
@@ -87,7 +87,7 @@
                     
                         <p class="copyright">CODE<strong>STRONG</strong> <span>⊕</span> <?php print date('Y'); ?></p>
                         <p class="version">
-                            <small><a href="http://www.NAEQuery.com" title="NAEQuery Cipher Tool">NAEQ<small>UERY</small></a> Version III</small>
+                            <small><a href="https://www.NAEQuery.com" title="NAEQuery Cipher Tool">NAEQ<small>UERY</small></a> Version III</small>
                         </p>
 
                         <div class="social-buttons">
@@ -101,6 +101,14 @@
 
                         <div class="legal">
                             <div class="legal-item">
+                                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                                    <input type="hidden" name="cmd" value="_donations" />
+                                    <input type="hidden" name="business" value="2YKX6SD6NLRDG" />
+                                    <input type="hidden" name="currency_code" value="USD" />
+                                    <input type="image" width="190" src="https://raw.githubusercontent.com/stefan-niedermann/paypal-donate-button/master/paypal-donate-button.png" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+                                    <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+                                </form>
+
                                 <span id="siteseal">
                                     <script async type="text/javascript" src="https://seal.godaddy.com/getSeal?sealID=JLAmejZTh1vfwcMMJRE2gxyMw9ZZOHNPzZngAZkyDsp0oeLetRndWnSjCjBx"></script>
                                 </span>

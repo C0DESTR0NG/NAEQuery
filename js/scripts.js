@@ -177,12 +177,11 @@ $(document).ready( function() {
                         'event_label': $('.naeq-textarea').val() 
                     });
 
-                    let selectedCipherType = $('.form-check input.form-check-input[name="cipherType"]:checked').val().replace("cipher","Cipher ");
-
+                    /*let selectedCipherType = $('.form-check input.form-check-input[name="cipherType"]:checked').val().replace("cipher","Cipher ");
                     gtag('event', 'analyze', {
                         'event_category': 'NAEQ Text Cipher Type',
                         'event_label': selectedCipherType 
-                    });
+                    });*/
                 }
             }
             catch(err) {

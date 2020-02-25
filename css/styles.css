@@ -34,7 +34,7 @@ ul.has-header { margin-top: -1em; }
 .form-group .main-textarea-wrapper { background-color: #fbfaf5!important; padding-top: 0; margin-left: 0; }
 .form-group .main-textarea-wrapper.snap { position: fixed; z-index: 112; top: 0; -webkit-transition: .25s ease-in; -moz-transition: all .25s ease-in; transition: all .25s ease-in; transform: inherit; }
 .form-group .main-textarea-wrapper.snap.hide { transform: translateY(-100%); }
-.form-group .form-check { margin-top: 0.5em; }
+.form-group .form-check { margin-top: 0.5em; display: none!important; }
 .form-group .form-check .form-check-label { padding-right: 2em; font-family: 'tex_gyre_pagellaregular'; font-size: 1.2em; } 
 .form-group .form-check .form-check-input { position: relative; top: -2px; margin: 0 .45em 0 0; }
 .form-group .cipher-matches { display: none; padding: 0 0 2em; }

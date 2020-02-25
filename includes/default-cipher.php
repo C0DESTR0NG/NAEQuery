@@ -4,7 +4,7 @@
     <div class="col-md-10 offset-md-1 text-center">
         <h2>Find matching cipher values by number</h2>
         <p>
-            Have you found a unique word, phrase, or <em>nom de plume</em>? NAEQ<small>UERY</small> provides an exclusive tool to highlight significant<br class="hidden-md-down"> words by number value using Cipher 6 or Cipher X ― "112 &hellip; tells you you’re in <em>important territory</em>"
+            Have you found a unique word, phrase, or <em>nom de plume</em>? NAEQ<small>UERY</small> provides an exclusive tool to highlight<br class="hidden-md-down"> significant words by number value ― "112 &hellip; tells you you’re in <em>important territory</em>"
         </p>
     </div>
 </div>
@@ -35,7 +35,7 @@
                     </div>
                     <div class="col-md-6">
                         
-                        <div class="form-check">
+                        <div class="form-check" style="display: none!important;">
                             <label class="form-check-label">
                                 <input class="form-check-input radio-inline" type="radio" name="cipherType" value="cipher6" checked>
                                 Cipher 6 (ALW)
