@@ -32,7 +32,8 @@ Liber CCCLXX: Liber A'ash Vel Capricoroni Pneumatici Sub Figuræ CCCLXX
 Liber CD: Liber Tau Vel Kabbalæ Trium Literarum Sub Figuræ CD
 Liber DCCCXIII: Vel Ararita Sub Figuræ DLXX*/
     
-var topSnapElementBreakpoint,
+var lastMainTextareaDataValue = "",
+    topSnapElementBreakpoint,
     naeqData = [];
 
 NAEQuery.Controller = function() {
@@ -118,9 +119,6 @@ NAEQuery.Controller = function() {
                         .prev()
                         .text(matches.length);
 
-
-
-
                         // TODO parse each active result window to find common matches: ?????
                         /*var text1 = $('#collapseBookI .card-body').text();
                         var text2   = $('#collapseBookXXXI .card-body').text();
@@ -143,7 +141,9 @@ NAEQuery.Controller = function() {
                 if( text.length == 0 ) {
                     $('#accordion-ciphers .card .card-body').text("");
                 }
-            })
+            }).bind("blur", function() {
+                NAEQuery.Controller.sendMainTextareaData();
+            });
 
             setTimeout(function(){ 
                 $('html,body').animate( { scrollTop : '1px' }, 1); 
@@ -157,7 +157,8 @@ NAEQuery.Controller = function() {
                 else { 
                     $(checkbox).parents('.card').addClass('active');
                     
-                    try {
+                    // Disabled on 03/25/2020
+                    /* try {
                         gtag('event', 'filter_on', {
                             'event_category': 'Liber Book Filter',
                             'event_label': bookNumber.toUpperCase() 
@@ -165,7 +166,7 @@ NAEQuery.Controller = function() {
                     }
                     catch(err) {
                         console.warn(err);
-                    }
+                    } */
                 }
 
                 NAEQuery.Controller.clearCookie("checkbox-"+ bookNumber);
@@ -192,6 +193,8 @@ NAEQuery.Controller = function() {
                     if( !$(mainWrapper).hasClass('snap') ) {
                         $('body').css('padding-top', parseInt(($(mainWrapper).outerHeight()+bodyBreakpoint)+'px'));
                         $(mainWrapper).addClass('snap');
+
+                        NAEQuery.Controller.sendMainTextareaData();
                     }
                     if( $(_w).scrollTop() > ($(_hr).offset().top-$(mainWrapper).outerHeight()) ) {
                         $(mainWrapper).addClass('hide');
@@ -202,6 +205,11 @@ NAEQuery.Controller = function() {
                 }
                 else {
                     $('body').css('padding-top', '1.5em');
+                    
+                    if( $(mainWrapper).hasClass('snap') ) {
+                        NAEQuery.Controller.sendMainTextareaData();
+                    }
+
                     $(mainWrapper).removeClass('snap');
                 }
             });
@@ -227,6 +235,24 @@ NAEQuery.Controller = function() {
                                            $('h1').outerHeight();
             });
             $(window).resize();
+        },
+
+        sendMainTextareaData: function() {
+            let mainTextareaValue = $('textarea.main-textarea').val();
+            if( lastMainTextareaDataValue != mainTextareaValue && mainTextareaValue != "" ) {
+                //console.log("// GA Event called here");
+                lastMainTextareaDataValue = mainTextareaValue;
+                
+                try {
+                    gtag('event', 'analyze', {
+                        'event_category': 'NAEQUERY Parse',
+                        'event_label': lastMainTextareaDataValue
+                    });
+                }
+                catch(err) {
+                    console.warn(err);
+                }
+            }
         },
 
         cleanData: function(array) {
