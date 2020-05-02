@@ -85,7 +85,7 @@ textarea.form-control::placeholder { font-size: 1em; padding-left: .1em; color: 
 #accordion-ciphers .card.filterable .card-body ul { display: block; list-style: none; padding-left: 0.8em; margin-bottom: 0; }
 #accordion-ciphers .card.filterable .card-body ul li { width: 100%; display: inline-block; padding-bottom: 0.5em; text-transform: uppercase; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; min-width: 0; word-wrap: break-word; }
 #accordion-ciphers .card.filterable .card-body ul li::before { content: "\2295"; font-size: .55em; color: #ddd; display: inline-block; width: 1em; margin-left: -1em; top: -0.35em; position: relative; left: -4px; }
-#accordion-ciphers .card.filterable .card-body span.verse { color: rgba(18, 52, 86, .5); font-weight: 700; font-family: 'tex_gyre_pagellaregular'; }
+#accordion-ciphers .card.filterable .card-body span { color: rgba(18, 52, 86, .5); font-weight: 700; font-family: 'tex_gyre_pagellaregular'; }
 #accordion-ciphers .card.filterable .card-body:empty { padding: 1.8em 2.2em 1.7em; }
 #accordion-ciphers .card.filterable .card-body:empty:before { content: "No matches"; color: #aaa; position: absolute; bottom: 18px; font-size: 0.8em; left: 2.8em; }
 #accordion-ciphers.card-columns[data-columns="1"] .card.filterable .card-body ul { -webkit-column-count: 4; -moz-column-count: 4; column-count: 4; -webkit-column-gap: 1.5em; -moz-column-gap: 1.5em; column-gap: 1.5em; }
@@ -103,8 +103,8 @@ textarea.form-control::placeholder { font-size: 1em; padding-left: .1em; color: 
 
 .card.filter { border: none; border: 1px solid #ccc; border-bottom: 1px solid #ccc!important; border-top: none; }
 .card.filter .card-header { background-color: #eee!important; padding: 0.2em 0 0.3em!important; font-size: 0.9em; }
-.card.filter .card-header a { width: 100%; display: block; }
-.card.filter .card-header h5 { position: relative; left: 50%; transform: translateX(-50%); width: auto; display: inline-block; font-family: 'tex_gyre_pagellaregular'; color: #36373c!important; text-align: center; }
+.card.filter .card-header a { width: 100%; display: block; padding: 0.2em 0 .3em; }
+.card.filter .card-header h5 { position: relative; left: 49.5%; transform: translateX(-50%); width: auto; display: inline-block; font-family: 'tex_gyre_pagellaregular'; color: #36373c!important; text-align: center; }
 .card.filter .card-header h5:after { content: "\f078"; font-family: 'FontAwesome'; position: absolute; color: #999; right: -17px; top: 2px; font-size: 0.7em; }
 .card.filter .card-header a[aria-expanded="false"] h5:after { content: "\f077"; }
 .card.filter .card-header > a:after { display: none; }
@@ -136,6 +136,13 @@ blockquote.last { margin-bottom: 1.5em!important; }
 .cloud { height: 300px; }
 #cloud { left: 50%; width: 95%; margin: 3em 0 0; position: relative; transform: translateX(-50%); }
 .jqcloud span { font-family: 'PT Serif', sans-serif!important; }
+
+.reorder-buttons { display: none; position: relative; background: rgba(61, 88, 117, .12); width: 100%; bottom: 0; left: 0%; text-align: center; border-top: 1px solid #ccc; }
+.reorder-buttons button { margin: 0.4em 0.1em 0.3em; padding: 0.4em 0.8em 0.5em; background-color: #fff; color: #333; border: 1px solid rgba(0,0,0,.2); border-radius: 4px; font-size: 0.84em; outline: none; }
+.reorder-buttons button.btn-reverse:before { content: "\f0ec"; font-family: 'FontAwesome'; position: relative; color: #da5c00; top: .01em; font-size: 0.9em; padding: 0 7px 0 2px; }
+.reorder-buttons button.btn-shuffle:before { content: "\f074"; font-family: 'FontAwesome'; position: relative; color: #da5c00; top: .01em; font-size: 0.9em; padding: 0 7px 0 2px; }
+body:not(.touch) .reorder-buttons button:active { transform: translate(3px, 2px); }
+.reorder-buttons button.active { transform: translate(3px, 2px); }
 
 footer { font-size: 1.3em; padding-bottom: 1em; }
 footer .quote { padding: 5em 0; font-size: 0.8em!important; opacity: .45; color: #818078; }

@@ -15,6 +15,11 @@ const classABooksOfThelema = {
     LIBERCLVI:  'clvi'     // 156
 }
 
+const reorderTypes = {
+    REVERSE:  'reverse',
+    SHUFFLE:  'shuffle' 
+}
+
 const pathToClassABooksOfThelema = "js/book-data/naeq-liber-{{bookNumber}}.json";
 
 /* The Holy Books of Thelema (Class A)
@@ -71,6 +76,8 @@ NAEQuery.Controller = function() {
             let isTouchDevice = 'ontouchstart' in document.documentElement;
 	        if( isTouchDevice ) {
                 $('body').addClass('touch');
+                $('.reorder-buttons button').on({ 'touchstart' : function(){ $(this).addClass('active'); } });
+                $('.reorder-buttons button').on({ 'touchend' : function(){ $(this).removeClass('active'); } });
             }
             
             NAEQuery.Controller.resize();
@@ -140,6 +147,10 @@ NAEQuery.Controller = function() {
 
                 if( text.length == 0 ) {
                     $('#accordion-ciphers .card .card-body').text("");
+                    $('.reorder-buttons').slideUp();
+                }
+                else {
+                    $('.reorder-buttons').slideDown();
                 }
             }).bind("blur", function() {
                 NAEQuery.Controller.sendMainTextareaData();
@@ -288,6 +299,27 @@ NAEQuery.Controller = function() {
             return $.grep(array, function(el, index) {
                 return index === $.inArray(el, array);
             });
+        },
+
+        
+
+        reorderResults: function(elem, reorderType) {
+            $('#accordion-ciphers .filterable.active').each( function() {
+                $(this).find('.card-body ul li').each( function() {
+                    if( $(this).text().length > 0 ) {
+                        switch( reorderType ) {
+                            case reorderTypes.REVERSE:
+                                $(this).html( $(this).html().split(' ').reverse().join(' ') );
+                                break;
+                            case reorderTypes.SHUFFLE:
+                                $(this).html( $(this).html().split(' ').shuffleWords().join(' ') );
+                                break;
+                        }
+                    }
+                });
+            });
+
+            $(elem).blur();
         }
     }
 }();
@@ -309,7 +341,7 @@ String.prototype.cleanCapitalization = function () {
                .trim();
 }
 String.prototype.cleanVerseNumbers = function () {
-    return this.replace(/{{/g, '<span class="verse">')
+    return this.replace(/{{/g, '<span>')
                .replace(/}}/g, '</span>')
                .trim();
 }
@@ -319,3 +351,15 @@ String.prototype.removeVerseNumbers = function () {
                .replace(/}}/g, '')
                .trim();
 }
+Array.prototype.shuffleWords = function() {
+    var i = this.length;
+    if (i == 0) return this;
+    while (--i) {
+        var j = Math.floor(Math.random() * (i + 1 ));
+        var a = this[i];
+        var b = this[j];
+        this[i] = b;
+        this[j] = a;
+    }
+    return this;
+};

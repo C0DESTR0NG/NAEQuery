@@ -86,6 +86,11 @@
 
                 </div> <!-- card-body.// -->
             </div>
+
+            <section class="reorder-buttons">
+                <button onclick="NAEQuery.Controller.reorderResults(this,reorderTypes.REVERSE);" class="btn-reverse">Reverse results</button>
+                <button onclick="NAEQuery.Controller.reorderResults(this,reorderTypes.SHUFFLE);" class="btn-shuffle">Shuffle results</button>                        
+            </section>
             
         </div> <!-- card.// -->
     </div>

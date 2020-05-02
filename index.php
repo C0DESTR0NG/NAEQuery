@@ -56,7 +56,7 @@
                     <h1>
                         <a href="https://www.NAEQuery.com" title="NAEQuery by CODESTRONG">NAEQ<small>UERY</small></a>
                         <a href="javascript:void(0)" title="About NAEQuery" class="about-btn"><span></span></a>
-                        <span>Version III</span>
+                        <span>Version III.I</span>
                     </h1>
 
                     <div class="about">
@@ -87,7 +87,7 @@
                     
                         <p class="copyright">CODE<strong>STRONG</strong> <span>⊕</span> <?php print date('Y'); ?></p>
                         <p class="version">
-                            <small><a href="https://www.NAEQuery.com" title="NAEQuery Cipher Tool">NAEQ<small>UERY</small></a> Version III</small>
+                            <small><a href="https://www.NAEQuery.com" title="NAEQuery Cipher Tool">NAEQ<small>UERY</small></a> Version III.I</small>
                         </p>
 
                         <div class="social-buttons">
