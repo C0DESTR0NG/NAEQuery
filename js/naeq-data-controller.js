@@ -1,3 +1,7 @@
+/**
+ * @author Chad Milburn <chad@codestrong.org>
+ */
+
 
 if (typeof NAEQuery == 'undefined') {
     NAEQuery = {};
@@ -8,7 +12,7 @@ const classABooksOfThelema = {
     LIBERVII:   'vii',     // 7
     LIBERX:     'x',       // 10
     LIBERXXVII: 'xxvii',   // 27
-    LIBERXXXI:  'xxxi',    // 31  ****
+    LIBERXXXI:  'xxxi',    // 31  * Default *
     LIBERLXV:   'lxv',     // 65
     LIBERLXVI:  'lxvi',    // 66
     LIBERLXC:   'xc',      // 90
@@ -32,10 +36,14 @@ const pathToClassABooksOfThelema = "js/book-data/naeq-liber-{{bookNumber}}.json"
     Liber XC: Liber Tzaddi Vel Hamus Hermeticus Sub Figurâ XC
     Liber CLVI: Liber Cheth Vel Vallum Abiegni Sub Figurâ CLVI
     Liber XXXI: Liber AL(Liber Legis), The Book of the Law
-Liber CCXXXI: Liber Arcanorum ιων ATU ν TAHUTI Quas Vidit Asar in Amenti Sub Figurâ CCXXXI Liber Carcerorum ιων Qliphoth cum suis Geniis
-Liber CCCLXX: Liber A'ash Vel Capricoroni Pneumatici Sub Figuræ CCCLXX
-Liber CD: Liber Tau Vel Kabbalæ Trium Literarum Sub Figuræ CD
-Liber DCCCXIII: Vel Ararita Sub Figuræ DLXX*/
+/*
+/* Coming soon
+   .. 
+    Liber CCXXXI: Liber Arcanorum ιων ATU ν TAHUTI Quas Vidit Asar in Amenti Sub Figurâ CCXXXI Liber Carcerorum ιων Qliphoth cum suis Geniis
+    Liber CCCLXX: Liber A'ash Vel Capricoroni Pneumatici Sub Figuræ CCCLXX
+    Liber CD: Liber Tau Vel Kabbalæ Trium Literarum Sub Figuræ CD
+    Liber DCCCXIII: Vel Ararita Sub Figuræ DLXX
+*/
     
 var lastMainTextareaDataValue = "",
     topSnapElementBreakpoint,
@@ -51,7 +59,7 @@ NAEQuery.Controller = function() {
 
         loadAllBookData: function() {
             let classABooksOfThelemaArray = Object.values(classABooksOfThelema);
-            if( classABooksOfThelemaArray.length > 0 ) {
+            if (classABooksOfThelemaArray.length > 0) {
                 classABooksOfThelemaArray.forEach(function(bookNumber, index) {
                     NAEQuery.Controller.loadBookJson(bookNumber);
                 });
@@ -60,11 +68,7 @@ NAEQuery.Controller = function() {
 
         loadBookJson: function(bookNumber) {
             $.getJSON(pathToClassABooksOfThelema.replace("{{bookNumber}}", bookNumber), function(json) {
-                // console.log( NAEQuery.Controller.cleanData(naeqData["xxxi"]["112"]) );
-                // console.log( NAEQuery.Controller.cleanData(json["112"]) );
-                // console.log(bookNumber);
-
-                if( Object.keys(json).length > 0 ) {
+                if (Object.keys(json).length > 0) {
                     $('input.custom-control-input[data-book-number="'+ bookNumber +'"]').parents('.custom-checkbox').show();
                     naeqData[bookNumber] = json;
                 }
@@ -74,7 +78,7 @@ NAEQuery.Controller = function() {
         bindEvents: function() {
             
             let isTouchDevice = 'ontouchstart' in document.documentElement;
-	        if( isTouchDevice ) {
+	        if (isTouchDevice) {
                 $('body').addClass('touch');
                 $('.reorder-buttons button').on({ 'touchstart' : function(){ $(this).addClass('active'); } });
                 $('.reorder-buttons button').on({ 'touchend' : function(){ $(this).removeClass('active'); } });
@@ -95,7 +99,7 @@ NAEQuery.Controller = function() {
                 allAvalilableBooks.forEach(function(bookNumber, index) {
                     try {
                         let matches = [];
-                        if( naeqData[bookNumber][cipherValue] !== undefined ) {
+                        if (naeqData[bookNumber][cipherValue] !== undefined) {
                             matches = naeqData[bookNumber][cipherValue].sort(function(a, b) {
                                 var x = a.removeVerseNumbers().cleanAmpersands(), y = b.removeVerseNumbers().cleanAmpersands();	
                                 return x < y ? -1 : x > y ? 1 : 0;
@@ -110,7 +114,7 @@ NAEQuery.Controller = function() {
                         $('.naeq-number-value span').text(cipherValue);
 
                         let matchHtml = "";
-                        if( matches.length > 0 ) {
+                        if (matches.length > 0) {
                             matchHtml = '<ul>'+ matches.join("</li>") +'</ul>';
                         }
 
@@ -125,27 +129,13 @@ NAEQuery.Controller = function() {
                         $('input.custom-control-input[data-book-number="'+ bookNumber +'"]')
                         .prev()
                         .text(matches.length);
-
-                        // TODO parse each active result window to find common matches: ?????
-                        /*var text1 = $('#collapseBookI .card-body').text();
-                        var text2   = $('#collapseBookXXXI .card-body').text();
-                        var text3   = $('#collapseBookVII .card-body').text();
-
-                        var text1Words = text1.split(', ');
-                        var text2Words = text2.split(', ');
-                        var text3Words = text3.split(', ');
-
-                        var commonWords = $(text1Words).filter(text2Words).toArray();
-                            commonWords = $(text3Words).filter(commonWords).toArray();
-                        console.log(commonWords);*/
-
                     }
                     catch(err) {
                         console.warn(err);
                     }
                 });
 
-                if( text.length == 0 ) {
+                if (text.length == 0) {
                     $('#accordion-ciphers .card .card-body').text("");
                     $('.reorder-buttons').slideUp();
                 }
@@ -158,13 +148,13 @@ NAEQuery.Controller = function() {
 
             setTimeout(function(){ 
                 $('html,body').animate( { scrollTop : '1px' }, 1); 
-                if( $(window).width() > 768 ) { $('textarea.main-textarea').focus(); }
+                if ($(window).width() > 768) { $('textarea.main-textarea').focus(); }
             }, 1);
 
             $('input.custom-control-input').change( function(){
                 let bookNumber = $(this).data('book-number');
                 let checkbox = $('#accordion-ciphers .filterable .card-header[data-book-number="'+ bookNumber +'"]');
-                if( !$(this).is(":checked") ) { $(checkbox).parents('.card').removeClass('active'); }
+                if (!$(this).is(":checked")) { $(checkbox).parents('.card').removeClass('active'); }
                 else { 
                     $(checkbox).parents('.card').addClass('active');
                     
@@ -182,9 +172,6 @@ NAEQuery.Controller = function() {
 
                 NAEQuery.Controller.clearCookie("checkbox-"+ bookNumber);
                 NAEQuery.Controller.setCookie("checkbox-"+ bookNumber, $(this).is(":checked"), 30);
-        
-                // $('textarea.main-textarea').trigger('propertychange');
-                
                 NAEQuery.Controller.resetFilterColumns();
             });
 
@@ -200,14 +187,14 @@ NAEQuery.Controller = function() {
                 let topBreakpoint = topSnapElementBreakpoint + 5;
                 let bodyBreakpoint = (_w.width() <= 550) ? 32 : 49;
                 
-                if( $(_w).scrollTop() > topBreakpoint ) {
-                    if( !$(mainWrapper).hasClass('snap') ) {
+                if ($(_w).scrollTop() > topBreakpoint) {
+                    if (!$(mainWrapper).hasClass('snap')) {
                         $('body').css('padding-top', parseInt(($(mainWrapper).outerHeight()+bodyBreakpoint)+'px'));
                         $(mainWrapper).addClass('snap');
 
                         NAEQuery.Controller.sendMainTextareaData();
                     }
-                    if( $(_w).scrollTop() > ($(_hr).offset().top-$(mainWrapper).outerHeight()) ) {
+                    if ($(_w).scrollTop() > ($(_hr).offset().top-$(mainWrapper).outerHeight())) {
                         $(mainWrapper).addClass('hide');
                     }
                     else {
@@ -217,7 +204,7 @@ NAEQuery.Controller = function() {
                 else {
                     $('body').css('padding-top', '1.5em');
                     
-                    if( $(mainWrapper).hasClass('snap') ) {
+                    if ($(mainWrapper).hasClass('snap')) {
                         NAEQuery.Controller.sendMainTextareaData();
                     }
 
@@ -228,7 +215,7 @@ NAEQuery.Controller = function() {
 
 
             // Mobile fixed position / scroll fix
-            if( $('body').hasClass('touch') ) {
+            if ($('body').hasClass('touch')) {
                 $(document).on('scroll', function(){
                     $(window).scroll();
                 });
@@ -250,8 +237,7 @@ NAEQuery.Controller = function() {
 
         sendMainTextareaData: function() {
             let mainTextareaValue = $('textarea.main-textarea').val();
-            if( lastMainTextareaDataValue != mainTextareaValue && mainTextareaValue != "" ) {
-                //console.log("// GA Event called here");
+            if (lastMainTextareaDataValue != mainTextareaValue && mainTextareaValue != "") {
                 lastMainTextareaDataValue = mainTextareaValue;
                 
                 try {
@@ -285,7 +271,7 @@ NAEQuery.Controller = function() {
         setCookie: function(name, value, daysToLive) {
             var cookie = name + "=" + encodeURIComponent(value);
             
-            if(typeof daysToLive === "number") {
+            if (typeof daysToLive === "number") {
                 cookie += "; max-age=" + (daysToLive*24*60*60) + "; path=/";
                 document.cookie = cookie;
             }
@@ -301,12 +287,10 @@ NAEQuery.Controller = function() {
             });
         },
 
-        
-
         reorderResults: function(elem, reorderType) {
             $('#accordion-ciphers .filterable.active').each( function() {
                 $(this).find('.card-body ul li').each( function() {
-                    if( $(this).text().length > 0 ) {
+                    if ($(this).text().length > 0) {
                         switch( reorderType ) {
                             case reorderTypes.REVERSE:
                                 $(this).html( $(this).html().split(' ').reverse().join(' ') );
